@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Art Monster Tattoo | St. Louis, MO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Art Monster Tattoo is a premier tattoo shop in St. Louis, MO offering custom tattoo designs, professional tattoo services, and expert cover-up & repair work." />
+  <!-- Lexend font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050505;
+      --bg-soft: #101010;
+      --bg-alt: #151515;
+      --text: #ffffff;
+      --muted: #b0b0b0;
+      --border: #ffffff;
+      --accent: #ffffff;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --max-width: 1120px;
+      --nav-height: 72px;
+      --font-sans: "Lexend", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: radial-gradient(circle at top left, #333 0, #050505 55%);
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 4rem 0;
+    }
+
+    @media (min-width: 768px) {
+      section {
+        padding: 4.8rem 0;
+      }
+    }
+
+    .section-heading {
+      margin-bottom: 2rem;
+    }
+
+    .section-eyebrow {
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      margin: 0 0 0.4rem;
+    }
+
+    .section-subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 34rem;
+    }
+
+    /* Header */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(5, 5, 5, 0.9);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .nav {
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .nav-logo-wrap {
+      width: 42px;
+      height: 42px;
+      overflow: hidden;
+    }
+
+    .nav-logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .nav-name {
+      font-size: 0.95rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--accent);
+      color: #000;
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.16s ease, color 0.16s ease, transform 0.12s ease;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      background: #ffffff;
+      color: #000;
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-outline:hover,
+    .btn-outline:focus-visible {
+      background: #151515;
+    }
+
+    .btn-full {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .nav-toggle {
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: var(--text);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      cursor: pointer;
+    }
+
+    .nav-toggle-icon {
+      width: 14px;
+      height: 2px;
+      background: var(--text);
+      position: relative;
+    }
+
+    .nav-toggle-icon::before,
+    .nav-toggle-icon::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 14px;
+      height: 2px;
+      background: var(--text);
+    }
+
+    .nav-toggle-icon::before {
+      top: -4px;
+    }
+
+    .nav-toggle-icon::after {
+      top: 4px;
+    }
+
+    .mobile-menu {
+      display: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      background: #050505;
+    }
+
+    .mobile-menu.open {
+      display: block;
+    }
+
+    .mobile-menu-inner {
+      padding: 0.75rem 1.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .mobile-menu-inner a {
+      padding: 0.25rem 0;
+    }
+
+    .mobile-menu-cta {
+      margin-top: 0.7rem;
+    }
+
+    @media (min-width: 900px) {
+      .nav-links {
+        display: flex;
+      }
+      .nav-cta {
+        display: inline-flex;
+      }
+      .nav-toggle {
+        display: none;
+      }
+    }
+
+    /* Hero */
+
+    .hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      color: var(--text);
+      background-image: url("Art-Monster-Sign.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.9),
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.4)
+      );
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      padding: 4.2rem 0 4.8rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.9fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2.5rem;
+      }
+    }
+
+    .hero-eyebrow {
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.6rem, 5vw, 3.4rem);
+      line-height: 1.02;
+      margin: 0 0 0.9rem;
+    }
+
+    .hero-subtitle {
+      margin: 0 0 1.4rem;
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 30rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-bottom: 1.6rem;
+      font-size: 0.82rem;
+    }
+
+    .hero-badge {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.9rem;
+      background: rgba(0, 0, 0, 0.65);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-note {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .hero-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(0, 0, 0, 0.8);
+      padding: 1.6rem 1.4rem;
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-card-title {
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin: 0 0 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-card-text {
+      margin: 0 0 0.5rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .hero-card-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* Artists */
+
+    .artist-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.2rem;
+    }
+
+    @media (min-width: 900px) {
+      .artist-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .artist-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: #080808;
+      padding: 1.4rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .artist-name {
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .artist-role {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .artist-bio {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* Services */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1rem;
+    }
+
+    @media (min-width: 900px) {
+      .services-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .service-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: #080808;
+      padding: 1.5rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .service-title {
+      margin: 0;
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .service-text {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* Gallery */
+
+    .gallery-wrapper {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: #080808;
+      padding: 1.4rem 1.4rem 1.2rem;
+    }
+
+    .gallery-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .gallery-handle {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.4rem;
+      max-height: 360px;
+      overflow-y: auto;
+      padding-right: 0.25rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      padding-top: 100%;
+      background: #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .gallery-item span {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-align: center;
+      padding: 0.3rem;
+    }
+
+    /* About / FAQ / Location / Contact wrappers */
+
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .two-column {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: #080808;
+      padding: 1.5rem 1.4rem;
+    }
+
+    .card p {
+      margin: 0 0 0.6rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 0.2rem 0 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .list li {
+      margin-bottom: 0.3rem;
+    }
+
+    /* FAQ */
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.9rem;
+    }
+
+    @media (min-width: 900px) {
+      .faq-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .faq-item {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: #080808;
+      padding: 1.1rem 1.1rem 1rem;
+    }
+
+    .faq-q {
+      margin: 0 0 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    .faq-a {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* Book consultation form */
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .form-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    form {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .field-group {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .field-row-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    label {
+      display: block;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.28rem;
+    }
+
+    .required {
+      color: var(--accent);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.7rem 0.8rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #050505;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      border-color: var(--accent);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .help-text {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 1.8rem 0 2.4rem;
+      background: #050505;
+      color: var(--muted);
+      font-size: 0.83rem;
+      margin-top: auto;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.9rem;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .footer-links a {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.7rem;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="nav">
+        <div class="nav-left">
+          <div class="nav-logo-wrap">
+            <img src="Art-M-W.jpg" alt="Art Monster Tattoo logo" />
+          </div>
+          <div class="nav-name">Art Monster Tattoo</div>
+        </div>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#artists">Artists</a>
+          <a href="#services">Services</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#faq">FAQ</a>
+          <a href="#location">Location</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a href="#book" class="btn btn-outline nav-cta">Book consult</a>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="nav-toggle-icon"></span>
+          <span>Menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+        <div class="mobile-menu-inner">
+          <a href="#about">About</a>
+          <a href="#artists">Artists</a>
+          <a href="#services">Services</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#faq">FAQ</a>
+          <a href="#location">Location</a>
+          <a href="#contact">Contact</a>
+          <div class="mobile-menu-cta">
+            <a href="#book" class="btn btn-full">Book consultation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="container">
+        <div class="hero-inner">
+          <div>
+            <p class="hero-eyebrow">Custom tattoo studio · St. Louis, MO</p>
+            <h1 class="hero-title">The best tattoo shop in St. Louis.</h1>
+            <p class="hero-subtitle">
+              Art Monster Tattoo blends clean technique with custom design, focusing on pieces that look as good healed as they do on day one.
+            </p>
+            <div class="hero-badges">
+              <div class="hero-badge">
+                <strong>4.8</strong><span>Google rating</span>
+              </div>
+              <div class="hero-badge">
+                <span>Since 2009</span>
+              </div>
+              <div class="hero-badge">
+                <span>Appointment‑first studio</span>
+              </div>
+            </div>
+            <div class="hero-actions">
+              <a href="#book" class="btn">Book a consultation</a>
+              <a href="#gallery" class="btn btn-outline">View work</a>
+            </div>
+            <p class="hero-note">
+              Tell us what you’re thinking and we’ll follow up with availability, pricing ranges, and the right artist for your style.
+            </p>
+          </div>
+
+          <aside class="hero-card" aria-label="Studio snapshot">
+            <p class="hero-card-title">Art Monster · South City</p>
+            <p class="hero-card-text">
+              Specializing in black & gray realism, bold color, fine detail, and thoughtful cover‑ups — all in a calm, appointment‑driven shop.
+            </p>
+            <p class="hero-card-meta">
+              Located in St. Louis, MO · Open most days by appointment · Walk‑ins announced on social.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-eyebrow">About the studio</p>
+          <h2 class="section-title">A focused shop built around custom work.</h2>
+          <p class="section-subtitle">
+            No chaos, no rush jobs. Just artists who care about line quality, healed results, and making sure you leave with something you’re proud to wear.
+          </p>
+        </div>
+        <div class="two-column">
+          <div class="card">
+            <p>
+              Art Monster has been part of the St. Louis tattoo scene since 2009, growing one appointment at a time through word of mouth and repeat clients.
+            </p>
+            <p>
+              Every tattoo starts with a short consult where we talk through your idea, placement, sizing, and style so the design fits your body and your life long‑term.
+            </p>
+          </div>
+          <div class="card">
+            <p><strong>What we focus on:</strong></p>
+            <ul class="list">
+              <li>Clean linework, smooth shading, and bold contrast.</li>
+              <li>Custom designs instead of copied flash sheets.</li>
+              <li>Real talk about what will and won’t age well.</li>
+              <li>A calm studio environment and strict cleanliness.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Artists -->
+    <section id="artists">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-eyebrow">Artists</p>
+          <h2 class="section-title">An artist for every style.</h2>
+          <p class="section-subtitle">
+            Three artists, overlapping skill sets, and plenty of range — from soft realism to graphic color and cover‑up problem solving.
+          </p>
+        </div>
+        <div class="artist-grid">
+          <article class="artist-card">
+            <h3 class="artist-name">Chris S.</h3>
+            <div class="artist-role">Black & gray realism · script</div>
+            <p class="artist-bio">
+              Chris builds high‑contrast black & gray pieces with smooth gradients and sharp detail. Great for portraits, religious work, and script that stays readable.
+            </p>
+          </article>
+          <article class="artist-card">
+            <h3 class="artist-name">Kevin P.</h3>
+            <div class="artist-role">Neo‑traditional · full color</div>
+            <p class="artist-bio">
+              Kevin mixes bold linework with saturated color, pulling from neo‑traditional, illustrative, and watercolor influences to create graphic, eye‑catching tattoos.
+            </p>
+          </article>
+          <article class="artist-card">
+            <h3 class="artist-name">John S.</h3>
+            <div class="artist-role">Geometric · cover‑ups</div>
+            <p class="artist-bio">
+              John focuses on geometric builds, pattern work, and smart cover‑ups that use contrast and placement to turn old tattoos into something you actually want to show.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-eyebrow">Services</p>
+          <h2 class="section-title">Tattoo services built around you.</h2>
+          <p class="section-subtitle">
+            Whether it’s your first tattoo or another addition to a full sleeve, the goal is the same: clean work that fits your story and heals right.
+          </p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <h3 class="service-title">Custom tattoo designs</h3>
+            <p class="service-text">
+              Bring a loose idea, a few reference photos, or just the story behind the piece. Our artists translate that into a custom design that fits your body, style, and long‑term plans.
+            </p>
+          </article>
+          <article class="service-card">
+            <h3 class="service-title">Professional tattoo services</h3>
+            <p class="service-text">
+              From small single‑session pieces to larger multi‑session projects, we use professional‑grade equipment, premium inks, and clean technique for consistent, high‑quality tattoos.
+            </p>
+          </article>
+          <article class="service-card">
+            <h3 class="service-title">Cover‑up & repair</h3>
+            <p class="service-text">
+              Not every tattoo can be erased, but many can be reworked. We specialize in cover‑ups and touch‑ups that use smart design, line weight, and shading to revive old or unwanted ink.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-eyebrow">Gallery</p>
+          <h2 class="section-title">Recent work from Instagram.</h2>
+          <p class="section-subtitle">
+            Connect your Instagram feed here to keep the gallery fresh with healed pieces, in‑progress shots, and flash drops.
+          </p>
+        </div>
+        <div class="gallery-wrapper">
+          <div class="gallery-header">
+            <div class="gallery-handle">@artmonstertattoo</div>
+            <a href="#" class="btn btn-outline" aria-label="View Art Monster on Instagram">Open Instagram</a>
+          </div>
+          <div class="gallery-grid" aria-label="Instagram gallery placeholder">
+            <!-- Replace each with real <img> tags or an embedded feed later -->
+            <div class="gallery-item"><span>Post 1</span></div>
+            <div class="gallery-item"><span>Post 2</span></div>
+            <div class="gallery-item"><span>Post 3</span></div>
+            <div class="gallery-item"><span>Post 4</span></div>
+            <div class="gallery-item"><span>Post 5</span></div>
+            <div class="gallery-item"><span>Post 6</span></div>
+            <div class="gallery-item"><span>Post 7</span></div>
+            <div class="gallery-item"><span>Post 8</span></div>
+            <div class="gallery-item"><span>Post 9</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-eyebrow">FAQ</p>
+          <h2 class="section-title">Questions before you book.</h2>
+          <p class="section-subtitle">
+            A few quick answers. If you’re unsure about anything — style, budget, or timing — mention it in your consultation request.
+          </p>
+        </div>
+        <div class="faq-grid">
+          <article class="faq-item">
+            <h3 class="faq-q">How do I book a consultation?</h3>
+            <p class="faq-a">
+              Fill out the consultation form with your idea, placement, and preferred artist. We’ll reply by email with next steps, estimated pricing, and available session times.
+            </p>
+          </article>
+          <article class="faq-item">
+            <h3 class="faq-q">Do you take walk‑ins?</h3>
+            <p class="faq-a">
+              Art Monster is appointment‑first. When walk‑ins are available for smaller pieces, we post the details on Instagram and other social channels.
+            </p>
+          </article>
+          <article class="faq-item">
+            <h3 class="faq-q">What should I bring to my appointment?</h3>
+            <p class="faq-a">
+              Bring any reference images, wear comfortable clothing that gives easy access to the area being tattooed, eat beforehand, and avoid alcohol for at least 24 hours.
+            </p>
+          </article>
+          <article class="faq-item">
+            <h3 class="faq-q">Do you require a deposit?</h3>
+            <p class="faq-a">
+              Yes. A non‑refundable deposit is required to hold your date and is applied to the final cost of the tattoo. Reschedules just need reasonable notice.
+            </p>
+          </article>
+          <article class="faq-item">
+            <h3 class="faq-q">Can you help with cover‑ups?</h3>
+            <p class="faq-a">
+              Absolutely. Attach a clear photo of the existing tattoo in your consultation form and we’ll let you know what’s realistic before scheduling.
+            </p>
+          </article>
+          <article class="faq-item">
+            <h3 class="faq-q">Is the studio licensed and clean?</h3>
+            <p class="faq-a">
+              Yes. We follow local health regulations, use single‑use needles, and keep a controlled, low‑traffic setup so everything stays clean and focused.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location -->
+    <section id="location">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-eyebrow">Location</p>
+          <h2 class="section-title">Located in St. Louis, Missouri.</h2>
+          <p class="section-subtitle">
+            South City area, convenient to major streets and easy street parking nearby. Exact directions are shared when your appointment is confirmed.
+          </p>
+        </div>
+        <div class="two-column">
+          <div class="card">
+            <p><strong>Studio hours</strong></p>
+            <ul class="list">
+              <li>Most days by appointment</li>
+              <li>Evening and weekend sessions available</li>
+              <li>Walk‑ins announced on social media only</li>
+            </ul>
+          </div>
+          <div class="card">
+            <p><strong>Contact</strong></p>
+            <ul class="list">
+              <li>Email: hello@artmonstertattoo.com</li>
+              <li>Phone: (314) 555‑1234</li>
+              <li>Instagram: @artmonstertattoo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Book consultation / Contact -->
+    <section id="book">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-eyebrow">Book consultation</p>
+          <h2 class="section-title">Tell us about your next tattoo.</h2>
+          <p class="section-subtitle">
+            Use this form to start the conversation. The more detail you share now, the easier it is to match you with the right artist and give you a clear plan.
+          </p>
+        </div>
+        <div class="form-grid" id="contact">
+          <div>
+            <form aria-label="Tattoo consultation form">
+              <div class="field-group field-row-2">
+                <div>
+                  <label for="full-name">Full name <span class="required">*</span></label>
+                  <input id="full-name" name="full-name" type="text" required />
+                </div>
+                <div>
+                  <label for="email">Email <span class="required">*</span></label>
+                  <input id="email" name="email" type="email" required />
+                </div>
+              </div>
+
+              <div class="field-group field-row-2">
+                <div>
+                  <label for="phone">Phone</label>
+                  <input id="phone" name="phone" type="tel" />
+                </div>
+                <div>
+                  <label for="artist">Desired artist</label>
+                  <select id="artist" name="artist">
+                    <option value="">No preference / match me</option>
+                    <option value="chris">Chris S.</option>
+                    <option value="kevin">Kevin P.</option>
+                    <option value="john">John S.</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <div>
+                  <label for="description">Tattoo description <span class="required">*</span></label>
+                  <textarea id="description" name="description" required></textarea>
+                </div>
+              </div>
+
+              <div class="field-group field-row-2">
+                <div>
+                  <label for="placement">Tattoo placement</label>
+                  <input id="placement" name="placement" type="text" placeholder="e.g. inner forearm, upper thigh" />
+                </div>
+                <div>
+                  <label for="coverup">Cover‑up?</label>
+                  <select id="coverup" name="coverup">
+                    <option value="">Select</option>
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field-group field-row-2">
+                <div>
+                  <label for="size">Tattoo size</label>
+                  <input id="size" name="size" type="text" placeholder="e.g. palm‑size, half sleeve" />
+                </div>
+                <div>
+                  <label for="style">Tattoo style</label>
+                  <input id="style" name="style" type="text" placeholder="e.g. black & gray realism, neo‑trad" />
+                </div>
+              </div>
+
+              <div class="field-group">
+                <button type="submit" class="btn btn-full">Submit consultation request</button>
+                <p class="help-text">
+                  This form does not book an appointment automatically. We’ll reach out within 1–2 business days with next steps.
+                </p>
+              </div>
+            </form>
+          </div>
+          <div class="card">
+            <p>
+              Prefer to talk it through first? Call during studio hours or send a DM on Instagram with a short note about your idea and we’ll point you in the right direction.
+            </p>
+            <p>
+              Attaching clear photos of the area, any existing tattoos, and a few style references makes it easier to plan sizing and quote ranges.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span>© <span id="year"></span> Art Monster Tattoo · St. Louis, MO</span>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#faq">FAQ</a>
+          <a href="#location">Location</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  const navToggle = document.querySelector(".nav-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  if (navToggle && mobileMenu) {
+    navToggle.addEventListener("click", () => {
+      const isOpen = mobileMenu.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      mobileMenu.setAttribute("aria-hidden", isOpen ? "false" : "true");
+    });
+  }
+
+  const yearEl = document.getElementById("year");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+</script>
+</body>
+</html>
+
