@@ -407,6 +407,81 @@
       color: var(--muted);
     }
 
+   /* === About section: three-tab layout === */
+
+.about-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.5fr);
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+@media (max-width: 900px) {
+  .about-split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.about-tabs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.about-tab {
+  position: relative;
+  padding: 0.6rem 0.4rem 0.6rem 0;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  transition: color 0.16s ease, transform 0.16s ease;
+}
+
+.about-tab::before {
+  content: "";
+  position: absolute;
+  left: -2.5rem;
+  top: 50%;
+  width: 2rem;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-50%);
+}
+
+.about-tab.active,
+.about-tab:hover {
+  color: var(--text);
+  transform: translateX(6px);
+}
+
+.about-content {
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: #080808;
+  padding: 1.6rem 1.5rem;
+  min-height: 190px;
+}
+
+.about-panel {
+  display: none;
+  font-size: 0.93rem;
+  color: var(--muted);
+}
+
+.about-panel.active {
+  display: block;
+}
+
+.about-panel p {
+  margin: 0 0 0.7rem;
+} 
+
     /* Artists */
 
     .artist-grid {
@@ -781,36 +856,59 @@
     </section>
 
     <!-- About -->
-    <section id="about">
-      <div class="container">
-        <div class="section-heading">
-          <p class="section-eyebrow">About the studio</p>
-          <h2 class="section-title">A focused shop built around custom work.</h2>
-          <p class="section-subtitle">
-            No chaos, no rush jobs. Just artists who care about line quality, healed results, and making sure you leave with something you’re proud to wear.
+  <div class="container">
+    <div class="section-heading">
+      <p class="section-eyebrow">About the studio</p>
+      <h2 class="section-title">What sets Art Monster apart.</h2>
+      <p class="section-subtitle">
+        Three core pillars define how the studio works: experienced artists, highly detailed work, and a wide variety of styles to match almost any idea.
+      </p>
+    </div>
+
+    <div class="about-split">
+      <ul class="about-tabs" aria-label="About highlights">
+        <li class="about-tab active" data-about-target="experienced">
+          <span>Experienced artists</span>
+        </li>
+        <li class="about-tab" data-about-target="detailed">
+          <span>Highly detailed</span>
+        </li>
+        <li class="about-tab" data-about-target="variety">
+          <span>Wide variety</span>
+        </li>
+      </ul>
+
+      <div class="about-content">
+        <div class="about-panel active" id="about-experienced">
+          <p>
+            Every artist at Art Monster is fully certified, health‑department compliant, and trained on modern equipment and sterilization standards.
+          </p>
+          <p>
+            Years of tattooing in St. Louis mean they’ve seen almost every skin type, placement, and style, which helps them make smart calls on design, sizing, and aftercare.
           </p>
         </div>
-        <div class="two-column">
-          <div class="card">
-            <p>
-              Art Monster has been part of the St. Louis tattoo scene since 2009, growing one appointment at a time through word of mouth and repeat clients.
-            </p>
-            <p>
-              Every tattoo starts with a short consult where we talk through your idea, placement, sizing, and style so the design fits your body and your life long‑term.
-            </p>
-          </div>
-          <div class="card">
-            <p><strong>What we focus on:</strong></p>
-            <ul class="list">
-              <li>Clean linework, smooth shading, and bold contrast.</li>
-              <li>Custom designs instead of copied flash sheets.</li>
-              <li>Real talk about what will and won’t age well.</li>
-              <li>A calm studio environment and strict cleanliness.</li>
-            </ul>
-          </div>
+
+        <div class="about-panel" id="about-detailed">
+          <p>
+            Pieces are built slowly and intentionally, from first sketch to final wipe. Line weight, contrast, and negative space are planned so the design stays readable long‑term.
+          </p>
+          <p>
+            Artists obsess over small decisions — from stencil placement to how shading wraps around muscle and bone — so the finished tattoo looks balanced from every angle.
+          </p>
+        </div>
+
+        <div class="about-panel" id="about-variety">
+          <p>
+            The crew handles a wide range of tattoo styles: black & gray realism, neo‑traditional, watercolor, Trash Polka, geometric work, script, and fully saturated color pieces.
+          </p>
+          <p>
+            Whether you want a subtle fine‑line script, a bold color sleeve, or an intricate pattern build, there’s an artist who can translate the idea into a cohesive design.
+          </p>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <!-- Artists -->
     <section id="artists">
@@ -1120,9 +1218,36 @@
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
   }
+
+    // About section tabs
+  const aboutTabs = document.querySelectorAll(".about-tab");
+  const aboutPanels = {
+    experienced: document.getElementById("about-experienced"),
+    detailed: document.getElementById("about-detailed"),
+    variety: document.getElementById("about-variety"),
+  };
+
+  aboutTabs.forEach((tab) => {
+    const key = tab.getAttribute("data-about-target");
+    const panel = aboutPanels[key];
+    if (!panel) return;
+
+    const activate = () => {
+      // set active tab
+      aboutTabs.forEach((t) => t.classList.remove("active"));
+      tab.classList.add("active");
+      // set active panel
+      Object.values(aboutPanels).forEach((p) => p.classList.remove("active"));
+      panel.classList.add("active");
+    };
+
+    tab.addEventListener("mouseenter", activate);
+    tab.addEventListener("click", activate);
+  });
 </script>
 </body>
 </html>
+
 
 
 
