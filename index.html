@@ -407,6 +407,23 @@
       color: var(--muted);
     }
 
+    .hero-half-logo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  max-height: 520px;          /* keep it from getting too tall on big screens */
+  opacity: 0.9;               /* tweak as you like */
+  pointer-events: none;       /* clicks pass through */
+}
+
+@media (max-width: 900px) {
+  .hero-half-logo {
+    opacity: 0.4;             /* soften on small screens */
+    max-height: 360px;
+  }
+}
+
    /* === About section: three-tab layout === */
 
 .about-split {
@@ -835,6 +852,16 @@
   <main>
     <!-- Hero -->
     <section class="hero" id="top">
+      <!-- Big half-logo overlay on right -->
+  <img
+    class="hero-half-logo"
+    src="half_logo_transparent_final.png"
+    alt="Art Monster half logo"
+  />
+
+  <div class="container">
+    <div class="hero-inner">
+      <!-- existing hero text content stays the same -->
       <div class="container">
         <div class="hero-inner">
           <div>
@@ -1241,6 +1268,7 @@
 </script>
 </body>
 </html>
+
 
 
 
