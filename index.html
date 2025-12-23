@@ -588,8 +588,8 @@
     }
     
     .service-card--center::after {
-  right: 50%;
-  transform: translateX(50%);
+  right: -1.25rem;   /* move this number to tweak left/right */
+  transform: none;   /* make sure this line is here or remove any transform */
 }
 
     .service-title {
@@ -1342,6 +1342,7 @@
 </script>
 </body>
 </html>
+
 
 
 
