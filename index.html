@@ -566,6 +566,31 @@
       gap: 0.6rem;
     }
 
+    /* Middle card vertical lines */
+    
+    .service-card--center {
+      position: relative;
+    }
+    
+    .service-card--center::before,
+    .service-card--center::after {
+      content: "";
+      position: absolute;
+      top: 14%;
+      bottom: 14%;
+      width: 2px;
+      background: #ffffff;
+      opacity: 0.9;
+    }
+    
+    .service-card--center::before {
+      left: -1.25rem;
+    }
+    
+    .service-card--center::after {
+      right: -1.25rem;
+    }
+
     .service-title {
       margin: 0;
       font-size: 1rem;
@@ -1019,7 +1044,7 @@
               Bring a loose idea, a few reference photos, or just the story behind the piece. Our artists translate that into a custom design that fits your body, style, and long‑term plans.
             </p>
           </article>
-          <article class="service-card">
+          <article class="service-card service-card--center">
             <h3 class="service-title">Professional tattoo services</h3>
             <p class="service-text">
               From small single‑session pieces to larger multi‑session projects, we use professional‑grade equipment, premium inks, and clean technique for consistent, high‑quality tattoos.
@@ -1316,6 +1341,7 @@
 </script>
 </body>
 </html>
+
 
 
 
