@@ -669,37 +669,67 @@
       margin-bottom: 0.3rem;
     }
 
-    /* FAQ */
+    /* FAQ accordion */
 
-    .faq-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 0.9rem;
+    .faq-group-label {
+      font-size: 0.9rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
     }
-
-    @media (min-width: 900px) {
-      .faq-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+    
+    .faq-accordion {
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      background: #000;
     }
-
-    .faq-item {
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border);
-      background: #080808;
-      padding: 1.1rem 1.1rem 1rem;
-    }
-
-    .faq-q {
-      margin: 0 0 0.4rem;
+    
+    .faq-row {
+      width: 100%;
+      border: none;
+      background: transparent;
+      color: var(--text);
+      padding: 0.85rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      cursor: pointer;
       font-size: 0.95rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
     }
-
-    .faq-a {
-      margin: 0;
+    
+    .faq-row-question {
+      font-weight: 500;
+    }
+    
+    .faq-row-icon {
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+    
+    .faq-row:hover,
+    .faq-row:focus-visible {
+      background: #080808;
+    }
+    
+    .faq-row-answer {
+      display: none;
+      padding: 0.5rem 0 0.9rem;
       font-size: 0.9rem;
       color: var(--muted);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
     }
+    
+    .faq-row.is-open + .faq-row-answer {
+      display: block;
+    }
+    
+    .faq-row.is-open .faq-row-icon {
+      transform: rotate(45deg); /* turns + into x-ish */
+    }
+
 
     /* Book consultation form */
 
@@ -1030,49 +1060,52 @@
     <section id="faq">
       <div class="container">
         <div class="section-heading">
-          <p class="section-eyebrow">FAQ</p>
-          <h2 class="section-title">Questions before you book.</h2>
-          <p class="section-subtitle">
-            A few quick answers. If you’re unsure about anything — style, budget, or timing — mention it in your consultation request.
-          </p>
+          <p class="section-eyebrow">FAQs</p>
+          <h2 class="section-title">Frequently asked questions.</h2>
         </div>
-        <div class="faq-grid">
-          <article class="faq-item">
-            <h3 class="faq-q">How do I book a consultation?</h3>
-            <p class="faq-a">
-              Fill out the consultation form with your idea, placement, and preferred artist. We’ll reply by email with next steps, estimated pricing, and available session times.
-            </p>
-          </article>
-          <article class="faq-item">
-            <h3 class="faq-q">Do you take walk‑ins?</h3>
-            <p class="faq-a">
-              Art Monster is appointment‑first. When walk‑ins are available for smaller pieces, we post the details on Instagram and other social channels.
-            </p>
-          </article>
-          <article class="faq-item">
-            <h3 class="faq-q">What should I bring to my appointment?</h3>
-            <p class="faq-a">
-              Bring any reference images, wear comfortable clothing that gives easy access to the area being tattooed, eat beforehand, and avoid alcohol for at least 24 hours.
-            </p>
-          </article>
-          <article class="faq-item">
-            <h3 class="faq-q">Do you require a deposit?</h3>
-            <p class="faq-a">
-              Yes. A non‑refundable deposit is required to hold your date and is applied to the final cost of the tattoo. Reschedules just need reasonable notice.
-            </p>
-          </article>
-          <article class="faq-item">
-            <h3 class="faq-q">Can you help with cover‑ups?</h3>
-            <p class="faq-a">
-              Absolutely. Attach a clear photo of the existing tattoo in your consultation form and we’ll let you know what’s realistic before scheduling.
-            </p>
-          </article>
-          <article class="faq-item">
-            <h3 class="faq-q">Is the studio licensed and clean?</h3>
-            <p class="faq-a">
-              Yes. We follow local health regulations, use single‑use needles, and keep a controlled, low‑traffic setup so everything stays clean and focused.
-            </p>
-          </article>
+
+        <div class="faq-group-label">Tattoo info</div>
+
+        <div class="faq-accordion" aria-label="Frequently asked questions">
+          <button class="faq-row" type="button">
+            <span class="faq-row-question">How do I book a consultation?</span>
+            <span class="faq-row-icon">+</span>
+          </button>
+          <div class="faq-row-answer">
+            Fill out the consultation form with your idea, placement, and preferred artist. We’ll reply by email with pricing ranges and available dates before anything is locked in.
+          </div>
+
+          <button class="faq-row" type="button">
+            <span class="faq-row-question">Do you take walk-ins?</span>
+            <span class="faq-row-icon">+</span>
+          </button>
+          <div class="faq-row-answer">
+            Art Monster is appointment-first so there’s time to design and prep. When we have room for small walk-ins, we post it on Instagram and other socials.
+          </div>
+
+          <button class="faq-row" type="button">
+            <span class="faq-row-question">What styles do you specialize in?</span>
+            <span class="faq-row-icon">+</span>
+          </button>
+          <div class="faq-row-answer">
+            The studio covers black & gray realism, neo-traditional, watercolor, Trash Polka, geometric, script, and full color work. We’ll match you with the artist who best fits your idea.
+          </div>
+
+          <button class="faq-row" type="button">
+            <span class="faq-row-question">Do you require a deposit?</span>
+            <span class="faq-row-icon">+</span>
+          </button>
+          <div class="faq-row-answer">
+            Yes. A non-refundable deposit holds your date and goes toward the final cost of your tattoo. If you need to move the appointment, we just ask for reasonable notice.
+          </div>
+
+          <button class="faq-row" type="button">
+            <span class="faq-row-question">Is the studio clean and licensed?</span>
+            <span class="faq-row-icon">+</span>
+          </button>
+          <div class="faq-row-answer">
+            Yes. We follow local health regulations, use single-use needles and tubes, and keep a controlled, low-traffic studio so every station is properly cleaned between clients.
+          </div>
         </div>
       </div>
     </section>
@@ -1263,9 +1296,25 @@
 </script>
 
 <script async src="//www.instagram.com/embed.js"></script>
+<script>
+    // FAQ accordion
+  const faqRows = document.querySelectorAll(".faq-row");
 
+  faqRows.forEach((row) => {
+    row.addEventListener("click", () => {
+      const isOpen = row.classList.contains("is-open");
+      // close all
+      faqRows.forEach((r) => r.classList.remove("is-open"));
+      // open current if it was closed
+      if (!isOpen) {
+        row.classList.add("is-open");
+      }
+    });
+  });
+<script>
 </body>
 </html>
+
 
 
 
