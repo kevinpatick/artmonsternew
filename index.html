@@ -272,10 +272,9 @@
 
     /* Default: full‑screen overlay for phones stays as‑is */
     /* Tablet & desktop: small dropdown panel on the right */
-    @media (min-width: 768px) {
+   @media (min-width: 768px) {
      .mobile-menu {
        top: var(--nav-height);
-       right: 2rem;
        height: auto;
        width: 220px;
        padding: 1rem 1.2rem;
@@ -286,7 +285,14 @@
        align-items: flex-start;
        justify-content: flex-start;
        gap: 0.6rem;
-      }
+    }
+
+    /* only move it on-screen when active */
+    .mobile-menu.active {
+      right: 2rem;
+    }
+  }
+
   
     .mobile-menu a {
       font-size: 0.9rem;
@@ -308,8 +314,7 @@
       cursor: pointer;
       }
     }
-
-    
+  
     /* Force hamburger on small screens */
     @media (max-width: 1024px) {
       .nav-links { display: none !important; }
@@ -1018,6 +1023,7 @@
 
 </body>
 </html>
+
 
 
 
