@@ -250,32 +250,51 @@
       transition: opacity 0.3s ease;
     }
 
-    /* --- MOBILE MENU OVERLAY --- */
+   /* Right-side panel menu */
     .mobile-menu {
       position: fixed;
       top: 0;
-      right: -100%;
-      width: 100%;
+      right: -340px;        /* hidden off-screen */
+      width: 320px;         /* about 1/5–1/6 of a 1920px screen */
       height: 100vh;
-      background: #080808;
+      background: #050505;
       z-index: 999;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      gap: 2rem;
-      transition: right 0.4s ease;
+      row-gap: 1.5rem;
+      padding: 2rem 2.5rem 2.5rem;
+      transition: right 0.35s ease;
     }
-    .mobile-menu.active { right: 0; }
+    
+    /* slide in */
+    .mobile-menu.active {
+      right: 0;
+    }
+    
+    /* Close X in top-right of panel */
+    .mobile-menu::before {
+      content: "X";
+      position: absolute;
+      top: 1.4rem;
+      right: 1.8rem;
+      font-size: 1.2rem;
+      letter-spacing: 0.16em;
+    }
+    
+    /* Links styling */
     .mobile-menu a {
-      font-size: 1.5rem;
-      color: #fff;
+      font-size: 1.1rem;
+      color: #ffffff;
       text-transform: uppercase;
+      letter-spacing: 0.18em;
+      text-align: left;
     }
-
-    .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
-    .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    
+    /* CTA at bottom */
+    .mobile-menu-cta {
+      margin-top: 3rem;
+    }
 
 
     /* --- Hero Section --- */
@@ -971,6 +990,7 @@
 
 </body>
 </html>
+
 
 
 
