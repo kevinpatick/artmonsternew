@@ -136,7 +136,7 @@
       padding: 1.5rem 2rem;
       z-index: 1000;
       transition: all 0.3s ease;
-      background: #000;
+      background: transparent;
     }
 
     .nav-container {
@@ -211,19 +211,84 @@
       color: #000;
     }
 
-    /* --- Hero Section --- */
-     .hero {
-       position: relative;
-       min-height: 100vh;         /* full screen */
-       padding-top: 80px;         /* space for fixed header */
-       display: flex;
-       align-items: center;
-       background-image: url("Art-Monster-Sign.png");
-       background-size: cover;
-       background-position: center;
-       background-repeat: no-repeat;
+    /* Hamburger (Hidden at top) */
+    .menu-toggle {
+      display: none; 
+      flex-direction: column;
+      gap: 6px;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+    .bar {
+      width: 28px;
+      height: 2px;
+      background-color: #fff;
+      transition: all 0.3s;
     }
 
+    /* --- SCROLLED STATE --- */
+    .navbar.scrolled {
+      background: rgba(5, 5, 5, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 0.8rem 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .navbar.scrolled .nav-links {
+      display: none;
+    }
+
+    .navbar.scrolled .menu-toggle {
+      display: flex;
+    }
+
+    /* --- MOBILE MENU OVERLAY --- */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100vh;
+      background: #080808;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      transition: right 0.4s ease;
+    }
+    .mobile-menu.active { right: 0; }
+    .mobile-menu a {
+      font-size: 1.5rem;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* Force hamburger on small screens */
+    @media (max-width: 1024px) {
+      .nav-links { display: none !important; }
+      .menu-toggle { display: flex !important; }
+    }
+
+
+    /* --- Hero Section --- */
+    .hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      /* Use your actual image file here */
+      background-image: url("Art-Monster-Sign.png"); 
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
     .hero::before {
       content: "";
       position: absolute;
@@ -266,12 +331,10 @@
       gap: 0.7rem;
       margin-bottom: 1rem;
     }
-       .hero-half-logo {
+    .hero-half-logo {
       position: absolute;
-      top: 120px;       /* Moves it down so it's not cut off by the header */
-      right: 0;
-      height: auto;     /* Lets it scale naturally */
-      max-height: 400px; /* Makes it smaller (was 520px) */
+      top: 0; right: 0; height: 100%;
+      max-height: 520px;
       opacity: 0.9;
       pointer-events: none;
     }
@@ -485,11 +548,33 @@
         <a href="#contact">Contact</a>
       </nav>
 
-    <div class="nav-right">
-      <a href="#book" class="btn btn-outline nav-cta">Get started</a>
+      <!-- Right: Button + Hamburger -->
+      <div class="nav-right">
+        <a href="#book" class="btn btn-outline nav-cta">Book consult</a>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
     </div>
     
-   
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about">About</a>
+      <a href="#artists">Artists</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#faq">FAQ</a>
+      <a href="#location">Location</a>
+      <a href="#contact">Contact</a>
+      <div class="mobile-menu-cta">
+        <a href="#book" class="btn btn-full">Book consultation</a>
+      </div>
+    </div>
+  </header>
+
   <main>
     <!-- Hero -->
     <section class="hero" id="top">
@@ -521,13 +606,13 @@
         <div class="about-split">
           <ul class="about-tabs" aria-label="About highlights">
             <li class="about-tab active" data-about-target="experienced">
-              <span>Vast Expertise</span>
+              <span>EXPERIENCED ARTISTS</span>
             </li>
             <li class="about-tab" data-about-target="detailed">
-              <span>Attention to Detail</span>
+              <span>ATTENTION TO DETAIL</span>
             </li>
             <li class="about-tab" data-about-target="variety">
-              <span>Wide Variety</span>
+              <span>WIDE VARIETY</span>
             </li>
           </ul>
           <div class="about-content">
@@ -849,19 +934,37 @@
     });
   });
 
+  // Navbar Scroll & Toggle Logic
+  const navbar = document.getElementById('navbar');
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuLinks = document.querySelectorAll('.mobile-menu a');
+
+  // Handle Scroll
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Toggle Menu
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+  });
+
+  // Close menu when a link is clicked
+  menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
 </script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
