@@ -243,6 +243,14 @@
       display: flex;
     }
 
+    /* Hide the Logo and Name on scroll */
+    .navbar.scrolled .nav-left {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+
     /* --- MOBILE MENU OVERLAY --- */
     .mobile-menu {
       position: fixed;
@@ -331,10 +339,12 @@
       gap: 0.7rem;
       margin-bottom: 1rem;
     }
-    .hero-half-logo {
+       .hero-half-logo {
       position: absolute;
-      top: 0; right: 0; height: 100%;
-      max-height: 520px;
+      top: 120px;       /* Moves it down so it's not cut off by the header */
+      right: 0;
+      height: auto;     /* Lets it scale naturally */
+      max-height: 400px; /* Makes it smaller (was 520px) */
       opacity: 0.9;
       pointer-events: none;
     }
@@ -968,4 +978,5 @@
 
 </body>
 </html>
+
 
