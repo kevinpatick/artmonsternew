@@ -313,17 +313,18 @@
     }
 
     /* --- Hero Section --- */
-    .hero {
-      position: relative;
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      /* Use your actual image file here */
-      background-image: url("Art-Monster-Sign.png"); 
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+     .hero {
+       position: relative;
+       min-height: 100vh;         /* full screen */
+       padding-top: 80px;         /* space for fixed header */
+       display: flex;
+       align-items: center;
+       background-image: url("Art-Monster-Sign.png");
+       background-size: cover;
+       background-position: center;
+       background-repeat: no-repeat;
     }
+
     .hero::before {
       content: "";
       position: absolute;
@@ -1004,18 +1005,20 @@
     });
   });
 
-  const closeButton = document.querySelector('.mobile-menu-close');
+const closeButton = document.querySelector('.mobile-menu-close');
 
-  // Close when X is clicked
+if (closeButton) {
   closeButton.addEventListener('click', () => {
     menuToggle.classList.remove('active');
     mobileMenu.classList.remove('active');
     document.body.style.overflow = '';
   });
-</script>
+}
 
+</script>
 </body>
 </html>
+
 
 
 
