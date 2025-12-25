@@ -278,6 +278,16 @@
     .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
     .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
+    @media (max-width: 767px) {
+    .mobile-menu {
+      top: var(--nav-height);      /* start where the header ends */
+      height: calc(100vh - var(--nav-height));
+      justify-content: flex-start; /* menu items begin just under header */
+      padding-top: 2rem;           /* adjust spacing to taste */
+      }
+    }
+
+
     /* Default: full‑screen overlay for phones stays as‑is */
     /* Tablet & desktop: small dropdown panel on the right */
    @media (min-width: 768px) {
@@ -1075,6 +1085,7 @@
 
 </body>
 </html>
+
 
 
 
