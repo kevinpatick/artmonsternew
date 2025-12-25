@@ -484,43 +484,47 @@
     .service-title { margin: 0; font-size: 1rem; letter-spacing: 0.12em; text-transform: uppercase; }
     .service-text { margin: 0; font-size: 0.9rem; color: var(--muted); }
 
+    /* Desktop: keep vertical lines on the middle card as you already have */
+
+    /* Mobile: move lines to bottom of first card and top of third card */
     @media (max-width: 768px) {
-    /* Turn off the vertical lines on mobile */
+    /* turn off the vertical side lines on the middle card */
     .service-card--center::before,
     .service-card--center::after {
       content: none;
     }
-    
-    /* Bottom line under the first card */
-    .services-grid .service-card:first-child {
+
+    /* bottom line under the FIRST card only */
+    .services-grid .service-card:nth-child(1) {
       position: relative;
     }
-    .services-grid .service-card:first-child::after {
+    .services-grid .service-card:nth-child(1)::after {
       content: "";
       position: absolute;
       left: 0;
       right: 0;
-      bottom: -1.2rem;      /* adjust gap as needed */
+      bottom: -1.2rem;   /* distance between card and line */
       height: 2px;
       background: #ffffff;
       opacity: 0.9;
     }
-    
-     /* Top line above the third card */
-    .services-grid .service-card:last-child {
+  
+    /* top line above the THIRD card only */
+    .services-grid .service-card:nth-child(3) {
       position: relative;
     }
-    .services-grid .service-card:last-child::before {
+    .services-grid .service-card:nth-child(3)::before {
       content: "";
       position: absolute;
       left: 0;
       right: 0;
-      top: -1.2rem;         /* adjust gap as needed */
+      top: -1.2rem;      /* distance between card and line */
       height: 2px;
       background: #ffffff;
       opacity: 0.9;
       }
     }
+
 
     /* --- Gallery --- */
     .gallery-wrapper {
@@ -1071,6 +1075,7 @@
 
 </body>
 </html>
+
 
 
 
