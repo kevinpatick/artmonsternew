@@ -171,6 +171,13 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       font-size: 1.1rem;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    
+    .nav-name--hidden {
+      opacity: 0;
+      transform: translateY(-4px);
+      pointer-events: none;
     }
 
     /* Center Links (Visible at Top) */
@@ -579,7 +586,7 @@
         <div class="nav-logo-wrap">
           <img src="logo_transparent_final.png" alt="Art Monster Tattoo logo" />
         </div>
-        <div class="nav-name">Art Monster Tattoo</div>
+        <div class="nav-name" id="navBrand">Art Monster Tattoo</div>
       </div>
       
       <!-- Middle: Links (Disappear on scroll) -->
@@ -983,13 +990,17 @@
   const menuToggle = document.getElementById('menuToggle');
   const mobileMenu = document.getElementById('mobileMenu');
   const menuLinks = document.querySelectorAll('.mobile-menu a');
+  const navBrand = document.getElementById('navBrand');
 
+ 
   // Handle Scroll
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
       navbar.classList.add('scrolled');
+      if (navBrand) navBrand.classList.add('nav-name--hidden');
     } else {
       navbar.classList.remove('scrolled');
+      if (navBrand) navBrand.classList.remove('nav-name--hidden');
     }
   });
 
@@ -1022,6 +1033,7 @@
 
 </body>
 </html>
+
 
 
 
